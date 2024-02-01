@@ -1,0 +1,13 @@
+{
+  "name": "sidekyk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev:api": "echo \"todo\"",
+    "dev:mobile": "echo \"todo\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
