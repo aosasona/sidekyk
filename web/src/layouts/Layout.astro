@@ -1,0 +1,150 @@
+---
+import ThemeToggle from "../components/ThemeToggle.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+	title: string;
+	showNav?: boolean;
+	showFooter?: boolean;
+}
+
+const { title, showNav = true, showFooter = true } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="dark">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Your personal AI sidekicks" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="theme-color" content="#EF4343" />
+		<meta name="color-scheme" content="light dark" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+
+		<title>{title}</title>
+	</head>
+	<body>
+		{
+			showNav && (
+				<nav class="fixed top-0 w-screen flex items-center justify-between bg-zinc-100/10 dark:bg-zinc-900/10 backdrop-blur-xl border-b border-b-zinc-200 dark:border-b-zinc-800 py-2 px-4 lg:px-6 z-[999]">
+					<a class="block h-8 md:h-8 aspect-square rounded-lg overflow-hidden !no-underline" href="/">
+						<img src="/logo.png" alt="Sidekyk logo" />
+					</a>
+					<div>
+						<ThemeToggle />
+					</div>
+				</nav>
+			)
+		}
+
+		<main class:list={[{ "mt-[10vh]": showNav }]}>
+			<slot />
+		</main>
+
+		{showFooter && <Footer />}
+	</body>
+</html>
+
+<script is:inline src="https://unpkg.com/lucide@latest"></script>
+
+<!-- Global styles -->
+<style lang="scss" is:global>
+	@import url("https://fonts.cdnfonts.com/css/euclid-circular-b");
+	@import url("https://fonts.cdnfonts.com/css/naston");
+	@import url("https://fonts.cdnfonts.com/css/inter");
+
+	:root {
+		--primary: #ef4343;
+	}
+
+	body {
+		font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+		@apply text-base text-zinc-900 dark:text-zinc-100 bg-background dark:bg-background-dark antialiased transition-colors;
+	}
+	code {
+		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+	}
+	a {
+		color: var(--primary) !important;
+
+		&:hover {
+			@apply underline;
+		}
+	}
+
+	h1 {
+		&.hero {
+			font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+			@apply text-zinc-900 dark:text-zinc-50 text-[2.5rem] sm:text-4xl lg:text-6xl leading-tight lg:leading-tight font-extrabold;
+		}
+	}
+
+	.input-field {
+		@apply flex flex-col space-y-1;
+		& label {
+			@apply text-sm font-medium text-zinc-400 dark:text-zinc-300 px-1;
+		}
+	}
+
+	.no-scroll {
+		@apply h-full overflow-hidden;
+	}
+
+	.feature {
+		@apply max-w-[90%] sm:max-w-xl lg:max-w-6xl mx-auto bg-zinc-200 dark:bg-zinc-800 rounded-3xl;
+	}
+
+	.text-muted {
+		@apply text-zinc-500 dark:text-zinc-400;
+	}
+
+	.app-border {
+		@apply border-zinc-200 dark:border-zinc-800;
+
+		&.left {
+			@apply border-l;
+		}
+
+		&.right {
+			@apply border-r;
+		}
+
+		&.top {
+			@apply border-t;
+		}
+
+		&.bottom {
+			@apply border-b;
+		}
+
+		&.all {
+			@apply border;
+		}
+	}
+
+	::selection {
+		@apply bg-primary;
+	}
+	::-moz-selection {
+		@apply bg-primary;
+	}
+	::-webkit-selection {
+		@apply bg-primary;
+	}
+
+	/* Scrollbar */
+	::-webkit-scrollbar {
+		width: 8px;
+		height: 6px;
+	}
+	::-webkit-scrollbar-track {
+		background: transparent;
+	}
+	::-webkit-scrollbar-thumb {
+		@apply bg-primary/70 rounded-xl;
+	}
+	::-webkit-scrollbar-thumb:hover {
+		@apply bg-primary;
+	}
+</style>

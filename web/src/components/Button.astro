@@ -1,0 +1,38 @@
+---
+type Props = {
+	id?: string;
+	full?: boolean;
+	variant?: "filled" | "outline" | "ghost" | "text";
+	class?: string;
+	type?: "button" | "submit" | "reset";
+	renderHyperlink?: boolean;
+	href?: string;
+	disabled?: boolean;
+};
+
+const variants = {
+	filled: "bg-primary !text-white",
+	outline: "border border-primary !text-primary",
+	ghost: "bg-primary/20 !text-primary",
+	text: "!text-primary",
+};
+
+const defaultStyle =
+	"w-full text-sm text-center items-center px-4 py-2.5 rounded-lg font-semibold transition-colors duration-150 ease-in-out focus:outline-none focus:shadow-outline-primary hover:bg-opacity-75";
+
+const { id, disabled = false, variant = "filled", class: className, type: btnType = "button", renderHyperlink = false, href = "#" } = Astro.props;
+
+const classes = [defaultStyle, className, variants[variant]];
+---
+
+{
+	renderHyperlink ? (
+		<a id={id} href={disabled ? "#" : href} class:list={[...classes, "!no-underline text-center", { "cursor-not-allowed": disabled }]}>
+			<slot />
+		</a>
+	) : (
+		<button id={id} type={btnType} class:list={classes} disabled>
+			<slot />
+		</button>
+	)
+}

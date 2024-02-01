@@ -1,0 +1,13 @@
+---
+import { twMerge } from "tailwind-merge";
+type Props = astroHTML.JSX.InputHTMLAttributes & {
+	name: string;
+	class?: string;
+};
+
+const { id = "", name, placeholder, type: inputType = "text", class: className = "", ...props } = Astro.props;
+
+const fullClassName = twMerge(className, "bg-zinc-200 dark:bg-zinc-800 lg:text-sm px-3 py-2.5 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary");
+---
+
+<input id={id} name={name} type={inputType} class={fullClassName} placeholder={placeholder ?? ""} {...props} />

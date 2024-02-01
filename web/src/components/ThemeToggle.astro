@@ -1,0 +1,10 @@
+---
+import { Sun, Moon } from "lucide-astro";
+---
+
+<button id="theme-toggle" class="bg-zinc-200 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 aspect-square rounded-full p-2 lg:p-2.5 scale-90 lg:!scale-75 transition">
+	<Sun class="hidden" id="theme-indicator-dark" />
+	<Moon class="hidden text-zinc-600" id="theme-indicator-light" />
+</button>
+
+<script src="../scripts/layout.ts"></script>

@@ -1,0 +1,55 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
+---
+
+<Layout title="Sidekyk" showNav={true} showFooter={true}>
+	<main class="container sm:max-w-2xl lg:max-w-5xl xl:max-w-6xl mx-auto mb-10 lg:mb-24">
+		<div class="grid grid-cols-1 lg:grid-cols-2 feature pt-10 lg:py-0 lg:pl-12 mt-24 lg:mt-40">
+			<div class="h-full sm:max-w-lg lg:max-w-none mx-auto flex flex-col justify-center px-8">
+				<h1 class="hero text-center lg:text-left">Your <span class="text-primary">personal</span> AI sidekicks!</h1>
+				<div>
+					<div class="w-full lg:max-w-sm flex lg:items-center lg:justify-center gap-3 mt-6 lg:mt-6">
+						<Button full={true} renderHyperlink={true} href="/download" disabled>Download</Button>
+						<Button full={true} variant="ghost" renderHyperlink={true} href="/sign-in" disabled>Sign In</Button>
+					</div>
+					<p class="text-xs text-zinc-500 dark:text-zinc-400 font-medium text-center lg:text-left mt-4 lg:px-1">Available on iOS and Android soon.</p>
+				</div>
+			</div>
+
+			<img src="/features/home.png" class="sm:max-w-sm lg:max-w-md mx-auto object-contain lg:pt-4" />
+		</div>
+
+		<div class="w-full grid grid-cols-1 lg:grid-cols-3 items-stretch gap-6 lg:gap-8 mt-6 lg:mt-8 !select-none">
+			<div class="feature flex flex-col lg:flex-row justify-between items-center lg:col-span-2 overflow-hidden">
+				<div class="p-8 pb-0 lg:py-0 lg:px-12">
+					<h1 class="text-5xl lg:text-[3.5rem] font-extrabold leading-tight">An <span class="text-primary">experience</span> you'll love.</h1>
+					<p class="text-muted mt-3 lg:mt-4">Customisable, snappy, sleek, familiar - yes, there's dark mode too; a real one, promise!</p>
+				</div>
+				<img src="/features/chat.png" class="lg:w-1/2 self-end" />
+			</div>
+
+			<div class="feature flex flex-col justify-between lg:col-span-1 overflow-hidden lg:pt-3">
+				<div class="p-8 pb-0 lg:px-8">
+					<h1 class="text-center text-3xl lg:text-4xl font-extrabold leading-tight">Multiple <span class="text-primary">personalities</span></h1>
+				</div>
+				<img src="/features/list.png" class="mt-auto" />
+			</div>
+
+			<div class="feature flex flex-col justify-between lg:col-span-1 overflow-hidden pb-8">
+				<img src="/features/create.png" />
+				<div class="p-8 pb-0 lg:py-4 lg:px-8">
+					<h1 class="text-center text-3xl lg:text-3xl font-extrabold leading-tight">Create your own <span class="text-primary">personalities</span></h1>
+				</div>
+			</div>
+
+			<div class="feature flex flex-col lg:flex-row items-center justify-between lg:col-span-2 overflow-hidden pb-8 lg:pr-6">
+				<img src="/features/avatar.png" class="lg:w-1/2 self-start" />
+				<div class="p-8 pt-8 pb-0 lg:pt-0 lg:px-0">
+					<h1 class="text-5xl lg:text-[3.5rem] font-extrabold leading-tight">Pick a <span class="text-primary">face</span>.</h1>
+					<p class="text-muted mt-3 lg:mt-4">Choose from a variety of avatars to represent your sidekicks - or upload your own! (coming soon)</p>
+				</div>
+			</div>
+		</div>
+	</main>
+</Layout>
