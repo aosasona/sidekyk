@@ -1,0 +1,35 @@
+{
+	"build": {
+		"production": {
+			"node": "18.16.1",
+			"channel": "production",
+			"autoIncrement": true,
+			"android": {},
+			"ios": {}
+		},
+		"development": {
+			"node": "18.16.1",
+			"developmentClient": true,
+			"distribution": "internal",
+			"env": {
+				"APP_ENVIRONMENT": "development"
+			}
+		},
+		"preview": {
+			"node": "18.16.1",
+			"extends": "production",
+			"channel": "preview",
+			"distribution": "internal",
+			"env": {
+				"APP_ENVIRONMENT": "preview"
+			}
+		}
+	},
+	"submit": {
+		"production": {}
+	},
+	"cli": {
+		"promptToConfigurePushNotifications": false,
+		"appVersionSource": "remote"
+	}
+}
